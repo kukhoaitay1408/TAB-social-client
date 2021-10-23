@@ -7,5 +7,7 @@ export const navName = {
   VERIFY_EMAIL: '/verify-email',
   FORGOT_PASSWORD: '/forgot-password',
   PROFILE: '/profile',
+  ADD_PASSWORD: 'add-password',
+  CHANGE_PASSWORD: '/change-password',
   NOT_FOUND: ''
 }

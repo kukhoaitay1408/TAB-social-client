@@ -29,13 +29,21 @@ const ProtectedRoute: React.FC<RouteProps & Iprops> = (
   props: RouteProps & Iprops
 ) => {
   const { component, resource, path, isAuth, isProtected, ...rest } = props
-  const { token } = useGetAuth()
+  const { token, user } = useGetAuth()
   const renderFn = (Component?: RouteComponent) => (props: RouteProps) => {
     if (!Component) {
       return <NotFoundPage />
     }
-    //@ts-ignore
-    return token ? <Component {...props} /> : <Redirect to={routes.login} />
+    return token ? (
+      user?.password ? (
+        //@ts-ignore
+        <Component {...props} />
+      ) : (
+        <Redirect to={routes.password} />
+      )
+    ) : (
+      <Redirect to={routes.login} />
+    )
   }
   return <Route {...rest} render={renderFn(component)} />
 }

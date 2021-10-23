@@ -19,3 +19,8 @@ export const DEFAULT_PAGE_SIZE = 10
 export const DEFAULT_PAGE_INDEX = 1
 
 export const DEFAULT_COMMENT_LENGTH = 3
+
+export const mode = {
+  CREATE: 'CREATE',
+  UPDATE: 'UPDATE'
+}

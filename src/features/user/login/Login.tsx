@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   const [onLoginGoogle] = useLoginWithGoogle()
 
-  const { token, isLoading } = useGetAuth()
+  const { token, isLoading, user } = useGetAuth()
 
   const handleSubmitForm = (data: LoginAccount) => {
     onFetch(data)
@@ -30,7 +30,11 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (token) {
-      history.push(navName.HOME)
+      if (user?.password) {
+        history.push(navName.HOME)
+      } else {
+        history.push(navName.ADD_PASSWORD)
+      }
     }
   }, [token, history])
 

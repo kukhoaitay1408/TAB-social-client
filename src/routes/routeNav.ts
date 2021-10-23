@@ -32,11 +32,17 @@ import {
   friendRequestResource,
   friendRequestRoutes
 } from 'features/friendRequest/nav'
+import {
+  passwordNav,
+  passwordResource,
+  passwordRoutes
+} from 'features/user/password/nav'
 
 export const mainNav = [
   ...loginNav,
   ...registerNav,
   ...verifyEmailNav,
+  ...passwordNav,
 
   ...profileNav,
   ...friendNav,
@@ -49,6 +55,7 @@ export const routes = {
   ...loginRoutes,
   ...registerRoutes,
   ...verifyEmailRoutes,
+  ...passwordRoutes,
 
   ...profileRoutes,
   ...friendRoutes,
@@ -61,6 +68,7 @@ export const resources = {
   ...loginResource,
   ...registerResource,
   ...verifyEmailResource,
+  ...passwordResource,
 
   ...profileResource,
   ...friendResource,

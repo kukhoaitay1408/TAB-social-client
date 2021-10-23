@@ -56,11 +56,11 @@ const SocketClient: React.FC = () => {
 
   // lang nghe su kien lay user online tu server
   useEffect(() => {
-    socketActions?.on('checkUserOnlineToClient', (userOnlines: any) => {
-      dispatch(addToOnlineList(userOnlines))
+    socketActions?.on('checkUserOnlineToClient', (onlineUsers: any) => {
+      dispatch(addToOnlineList(onlineUsers))
     })
     return () => socketActions?.off('checkUserOnlineToClient')
-  }, [socketActions])
+  }, [socketActions, dispatch, onlineUser])
 
   // nhan thong bao loi moi ket ban
   useEffect(() => {
